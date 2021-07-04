@@ -44,6 +44,7 @@ def readPaperPage():
     pass
 
 def deepReliPage():
+    st.markdown("<h1 style='text-align: center;'>Try Our DeepReli Model!</h1><br>", unsafe_allow_html=True)
     option = st.selectbox('Please Select An Input Option', ('By Text', 'By URL'))
     if option == 'By URL':
         url_input = st.text_input('Website URL')

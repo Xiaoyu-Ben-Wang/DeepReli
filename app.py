@@ -10,10 +10,10 @@ class Option:
     TEAM = '👨‍🔬 Meet The Team'
     RESEARCH = '🧪 Read Our Research'
     PROJECT = '🧠 DeepReli'
-    CREDITS = '📝 Acknowledgments'
+    #CREDITS = '📝 Acknowledgments'
 
 
-OPTIONS = [Option.HOME, Option.TEAM, Option.RESEARCH, Option.PROJECT, Option.CREDITS]
+OPTIONS = [Option.HOME, Option.TEAM, Option.RESEARCH, Option.PROJECT]
 
 st.sidebar.title('🧭Navigation')
 OPTION = Option.PROJECT
