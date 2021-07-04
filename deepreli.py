@@ -4,6 +4,7 @@ from boilerpy3 import extractors
 
 import numpy as np
 import streamlit as st
+from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 
@@ -13,20 +14,7 @@ from tensorflow.keras.layers import Dense, Embedding, LSTM, SpatialDropout1D, Dr
 
 
 def createModel():
-    model = Sequential()
-    model.add(Embedding(41576, 100, input_length=200, trainable=False))
-    model.add(SpatialDropout1D(0.2))
-    model.add(Bidirectional(LSTM(50, return_sequences=True)))
-    model.add(Bidirectional(LSTM(50)))
-    model.add(layer=Dropout(rate=0.1))
-    model.add(layer=BatchNormalization())
-    model.add(layer=Dense(units=100,  activation='relu'))
-    model.add(layer=BatchNormalization())
-    model.add(layer=Dropout(rate=0.1))
-    model.add(Dense(1, activation='sigmoid'))
-    optimizer = Adam(learning_rate=0.005)
-    model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-    model.load_weights('./model/weights.h5')
+    model = load_model('model/new_model.h5')
     return model
 
 @st.cache(suppress_st_warning=True)
