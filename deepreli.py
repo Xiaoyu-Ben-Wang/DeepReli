@@ -83,8 +83,11 @@ def predict(txt):
 
 def getTextFromURL(url):
     extractor = extractors.ArticleExtractor()
-    doc = extractor.get_doc_from_url(url)
-    return (doc.title, doc.content)
+    try:
+        doc = extractor.get_doc_from_url(url)
+        return (doc.title, doc.content)
+    except Exception:
+        return None
 
 # Global Vars
 
