@@ -72,20 +72,20 @@ def deepReliPage():
     elif option == 'By Text':
         txt_input = st.text_area('Article Text', max_chars=5000, height=250)
         process = st.button("Run DeepReli")
-        if txt_input or process:
+        if txt_input and process:
             predvalue = runDeepReli(txt_input)
             st.markdown("<h2 style='text-align: center;'>DeepReli Score</h2>", unsafe_allow_html=True)
-            if predvalue >= 0.60:
-                st.markdown("<h2 style='text-align: center; color: #00FF00'>{:.2}</h2>".format(round(predvalue, 2)),
+            if predvalue >= 0.65:
+                st.markdown("<h2 style='text-align: center; color: #00FF00'>{:.2}</h2>".format(predvalue, 2),
                             unsafe_allow_html=True)
-            elif predvalue <= 0.4:
-                st.markdown("<h2 style='text-align: center; color: #E1E100'>{:.2}</h2>".format(round(predvalue, 2)),
+            elif predvalue <= 0.35:
+                st.markdown("<h2 style='text-align: center; color: #FF4500'>{:.2}</h2>".format(predvalue),
                             unsafe_allow_html=True)
-            elif 0.5 <= predvalue <= 0.60:
-                st.markdown("<h2 style='text-align: center; color: #9ACD32'>{:.2}</h2>".format(round(predvalue, 2)),
+            elif 0.5 <= predvalue <= 0.65:
+                st.markdown("<h2 style='text-align: center; color: #9ACD32'>{:.2}</h2>".format(predvalue),
                             unsafe_allow_html=True)
-            elif 0.4 <= predvalue <= 0.5:
-                st.markdown("<h2 style='text-align: center; color: #FF4500'>{:.2}</h2>".format(round(predvalue, 2)),
+            elif 0.35 <= predvalue <= 0.5:
+                st.markdown("<h2 style='text-align: center; color: #E1E100'>{:.2}</h2>".format(predvalue),
                             unsafe_allow_html=True)
 
 
