@@ -1,5 +1,6 @@
 import pickle
 import re
+import nltk
 from boilerpy3 import extractors
 
 import numpy as np
@@ -8,16 +9,13 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.layers import Dense, Embedding, LSTM, SpatialDropout1D, Dropout, BatchNormalization, Bidirectional
+
 
 
 def createModel():
     model = load_model('model/new_model.h5')
     return model
 
-@st.cache(suppress_st_warning=True)
 def cleanText(txt):
     txt = re.sub('http\S+', '', txt)
     txt = txt.replace('!', '.')
@@ -33,8 +31,6 @@ def cleanText(txt):
         txt = txt.replace('  ', ' ')
     return ' '.join([LEMMA.lemmatize(w) for w in txt.split(' ') if w not in STOPWORDS])
 
-
-@st.cache(suppress_st_warning=True)
 def split_into_sentences(text):
     alphabets = "([A-Za-z])"
     prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
@@ -79,7 +75,6 @@ def split_into_sentences(text):
     sentences = [s.strip() for s in sentences]
     return sentences
 
-
 def predict(txt):
     txt = TOKENIZER.texts_to_sequences(txt)
     txt = pad_sequences(txt, padding='post', maxlen=200)
@@ -97,9 +92,7 @@ TOKENIZER = Tokenizer(num_words=20000, split=' ', oov_token='<unw>')
 with open('./model/tokenizer.pickle', 'rb') as handle:
     TOKENIZER = pickle.load(handle)
 
-LEMMA = None
-with open('./model/lemma.pickle', 'rb') as handle:
-    LEMMA = pickle.load(handle)
+LEMMA = nltk.WordNetLemmatizer()
 
 MODEL = createModel()
 

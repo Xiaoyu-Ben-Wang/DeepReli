@@ -1,10 +1,11 @@
 import streamlit as st
 import content
+import nltk
 
 # CONFIG
 st.set_page_config(layout='wide')
-
-
+nltk.download('wordnet', download_dir='./')
+nltk.data.path.append('./')
 class Option:
     HOME = '🏠 Home'
     TEAM = '👨‍🔬 Meet The Team'

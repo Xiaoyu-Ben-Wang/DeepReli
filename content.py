@@ -70,7 +70,7 @@ def deepReliPage():
                     st.write("Article Looks Sus - DeepReli Score: {:.2}".format(predvalue))
 
     elif option == 'By Text':
-        txt_input = st.text_area('Article Text')
+        txt_input = st.text_area('Article Text', max_chars=5000, height=250)
         process = st.button("Run DeepReli")
         if txt_input or process:
             predvalue = runDeepReli(txt_input)
