@@ -40,8 +40,10 @@ def teamPage():
 
 
 def readPaperPage():
+    f1 = open('./assets/md/research.md')
+    st.markdown(f1.read(), unsafe_allow_html=True)
+    f1.close()
 
-    pass
 
 def deepReliPage():
     st.markdown("<h1 style='text-align: center;'>Try Our DeepReli Model!</h1><br>", unsafe_allow_html=True)

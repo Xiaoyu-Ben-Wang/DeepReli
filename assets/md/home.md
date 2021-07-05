@@ -1,5 +1,6 @@
 <h1 style='text-align: center;line-height:150%'>2021 National Undergraduate Big Data Challenge<br/>Team #48: DeepReli</h1>
 
+Welcome to our website! Here we have hosted our DeepReli project for the STEM Fellowship's data science focused challenge.
 
 During the COVID-19 pandemic, huge amounts of new information from many different sources is made available to us each day. This pandemic has been worsened by this associated "infodemic". As individuals are becoming increasingly reliant on the internet as a source of  information, the presence of unreliable information or misinformation can become a source of confusion. This ultimately leads to misunderstandings of public health orders or even indirectly affects public policies. While it is critical to identify misinformation and unreliable news sources online, this task becomes increasingly challenging with the tremendous amount of information released each day.
 
