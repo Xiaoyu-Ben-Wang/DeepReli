@@ -1,4 +1,4 @@
-# Undergraduate Big Data Challenge 2021 Winning Project
+# Undergraduate Big Data Challenge 2021
 
 [![Our Presentation](https://img.youtube.com/vi/z8UYLYDOlCY/0.jpg)](https://www.youtube.com/watch?v=z8UYLYDOlCY&feature=youtu.be)
 
